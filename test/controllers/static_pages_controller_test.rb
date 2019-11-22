@@ -9,6 +9,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get root" do
     get root_url
     assert_response :success
+    assert_select "title", "Ruby on Rails Tutorial Sample App"
   end
 
   test "should get help" do
@@ -22,12 +23,5 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "About | #{@base_title}"
   end
-
-  test "should get Contact" do
-    get static_pages_contact_url
-    assert_response :success
-    assert_select "title", "Contact | #{@base_title}"
-  end
-
 
 end
